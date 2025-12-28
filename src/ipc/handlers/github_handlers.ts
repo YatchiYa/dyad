@@ -1,5 +1,4 @@
 import { ipcMain, BrowserWindow, IpcMainInvokeEvent } from "electron";
-import fetch from "node-fetch"; // Use node-fetch for making HTTP requests in main process
 import { writeSettings, readSettings } from "../../main/settings";
 import { gitSetRemoteUrl, gitPush, gitClone } from "../utils/git_utils";
 import * as schema from "../../db/schema";
@@ -177,9 +176,8 @@ async function pollForAccessToken(event: IpcMainInvokeEvent) {
             `Unknown GitHub error: ${data.error_description || data.error}`,
           );
           event.sender.send("github:flow-error", {
-            error: `GitHub authorization error: ${
-              data.error_description || data.error
-            }`,
+            error: `GitHub authorization error: ${data.error_description || data.error
+              }`,
           });
           stopPolling();
           break;
@@ -190,9 +188,8 @@ async function pollForAccessToken(event: IpcMainInvokeEvent) {
   } catch (error) {
     logger.error("Error polling for GitHub access token:", error);
     event.sender.send("github:flow-error", {
-      error: `Network or unexpected error during polling: ${
-        error instanceof Error ? error.message : String(error)
-      }`,
+      error: `Network or unexpected error during polling: ${error instanceof Error ? error.message : String(error)
+        }`,
     });
     stopPolling();
   }

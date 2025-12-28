@@ -1,4 +1,3 @@
-import fetch from "node-fetch"; // Electron main process might need node-fetch
 import log from "electron-log";
 import { createLoggedHandler } from "./safe_handle";
 import { readSettings } from "../../main/settings"; // Assuming settings are read this way

@@ -10,7 +10,21 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      external: ["better-sqlite3"],
+      external: [
+        "better-sqlite3",
+        "fs-extra",
+        "dugite",
+        "kill-port",
+        "tree-kill",
+        "@babel/parser",
+        "@babel/traverse",
+        "recast",
+        "glob",
+        "isomorphic-git",
+        "stacktrace-js",
+        "shell-env",
+        "ai",
+      ],
     },
   },
   plugins: [
